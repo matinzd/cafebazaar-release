@@ -6,6 +6,6 @@ export const upload = `/apps/releases/upload/`;
 
 export const commit = `/apps/releases/commit/`;
 
-export const lastUncommitted = `/releases/last-uncommitted`;
+export const lastUncommitted = `/apps/releases/last-uncommitted`;
 
 export const HEADER_AUTHORIZATION_KEY = "CAFEBAZAAR-PISHKHAN-API-SECRET";

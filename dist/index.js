@@ -138,7 +138,7 @@ exports.baseUrl = "https://api.pishkhan.cafebazaar.ir/v1";
 exports.releases = `/apps/releases/`;
 exports.upload = `/apps/releases/upload/`;
 exports.commit = `/apps/releases/commit/`;
-exports.lastUncommitted = `/releases/last-uncommitted`;
+exports.lastUncommitted = `/apps/releases/last-uncommitted`;
 exports.HEADER_AUTHORIZATION_KEY = "CAFEBAZAAR-PISHKHAN-API-SECRET";
 
 
@@ -203,9 +203,8 @@ function run() {
                 staged_rollout_percentage,
             };
             try {
-                core.debug(`before checking`);
                 const uncommittedRelease = yield (0, cafebazaar_1.checkIfThereIsAnyUncommittedRelease)();
-                core.debug(`uncommittedRelease: ${uncommittedRelease}`);
+                core.debug(`UncommittedRelease? ${uncommittedRelease}`);
                 if (uncommittedRelease) {
                     yield (0, cafebazaar_1.createPackage)(appFilePath);
                     yield (0, cafebazaar_1.commitRelease)(commitData);
