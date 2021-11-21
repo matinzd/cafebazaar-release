@@ -92,5 +92,5 @@ export const checkIfThereIsAnyUncommittedRelease = async () => {
   core.info(
     "Check if there is any uncommitted release: " + result.data.message
   );
-  return result.data.type === "not-exists";
+  return result.data.type !== "not-exists";
 };
