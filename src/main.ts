@@ -35,6 +35,8 @@ async function run(): Promise<void> {
     try {
       const uncommittedRelease = await checkIfThereIsAnyUncommittedRelease();
 
+      core.debug(`uncommittedRelease: ${uncommittedRelease}`);
+
       if (uncommittedRelease) {
         await createPackage(appFilePath);
         await commitRelease(commitData);

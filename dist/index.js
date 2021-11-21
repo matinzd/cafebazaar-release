@@ -204,6 +204,7 @@ function run() {
             };
             try {
                 const uncommittedRelease = yield (0, cafebazaar_1.checkIfThereIsAnyUncommittedRelease)();
+                core.debug(`uncommittedRelease: ${uncommittedRelease}`);
                 if (uncommittedRelease) {
                     yield (0, cafebazaar_1.createPackage)(appFilePath);
                     yield (0, cafebazaar_1.commitRelease)(commitData);
