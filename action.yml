@@ -1,0 +1,29 @@
+name: "Cafe Bazaar Release"
+description: "Upload your app to cafe bazaar store"
+inputs:
+  cafebazaar-pishkhaan-api-secret:
+    description: "Cafe Bazaar API Secret"
+    required: true
+  app_file:
+    description: "Path to APK/AAB file, by default it will pick first apk or aab in directories"
+    required: false
+  staged_rollout_percentage:
+    description: "Rollout percentage"
+    required: false
+    default: 100
+  auto_publish:
+    description: "Auto publish the package after approval"
+    required: false
+    default: true
+  developer_note:
+    description: "Developer note"
+    required: false
+  changelog_fa:
+    description: "Changelog in Persian"
+    required: false
+  changelog_en:
+    description: "Changelog in English"
+    required: false
+runs:
+  using: "node12"
+  main: "dist/index.js"
