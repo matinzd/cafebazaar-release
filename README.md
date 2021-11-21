@@ -7,7 +7,7 @@ You can upload your app to Cafebazaar using this github actions. It supports bot
 | Parameter                       | Description                                                                   | Required | Default                 |
 | ------------------------------- | ----------------------------------------------------------------------------- | -------- | ----------------------- |
 | cafebazaar-pishkhaan-api-secret | Cafe Bazaar API Secret                                                        | true     | N/A                     |
-| app_file                        | Path to APK/AAB file, by default it will pick first apk or aab in directories | false    | '**/\*.apk' '**/\*.aab' |
+| app_file                        | Path to APK/AAB file, by default it will pick first apk or aab in directories | false    | `["\**/\*.apk","**/\*.aab"]` |
 | staged_rollout_percentage       | Rollout percentage                                                            | false    | 100                     |
 | auto_publish                    | Auto publish the package after approval                                       | false    | true                    |
 | developer_note                  | Developer note for when publishing for administrators                         | false    | N/A                     |
