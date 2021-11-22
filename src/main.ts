@@ -46,7 +46,7 @@ async function run(): Promise<void> {
         await commitRelease(commitData);
       }
     } catch (error) {
-      core.setFailed(error as Error);
+      core.setFailed((error as Error).message);
     }
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message);
