@@ -47,6 +47,8 @@ export const createPackage = async (
           );
           core.info(`Package upload: ${percentCompleted}% uploaded`);
         },
+        maxBodyLength: Infinity,
+        maxContentLength: Infinity,
       });
 
       if (result.data.type !== "success") {
