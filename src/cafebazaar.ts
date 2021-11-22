@@ -1,6 +1,7 @@
 import * as core from "@actions/core";
 import { create } from "@actions/glob";
 import { AxiosResponse } from "axios";
+import FormData from "form-data";
 import fs from "fs";
 import { api } from "./api";
 import { commit, lastUncommitted, releases, upload } from "./constants";
