@@ -29,16 +29,18 @@ export const createPackage = async (
   if (files.length > 0) {
     const results = [];
     for (const file of files) {
-      const headers = {
-        "Content-Type": "multipart/form-data",
-        Accept: "application/json",
-      };
       const data = new FormData();
 
       const f = fs.createReadStream(file);
 
       data.append("apk", f as unknown as Blob);
       data.append("architecture", architecture.toString());
+
+      const headers = {
+        Accept: "application/json",
+        ...data.getHeaders(),
+      };
+
       const result = await api.post<UploadReleaseResponse>(upload, data, {
         headers,
         onUploadProgress: (progressEvent) => {
@@ -47,8 +49,6 @@ export const createPackage = async (
           );
           core.info(`Package upload: ${percentCompleted}% uploaded`);
         },
-        maxBodyLength: Infinity,
-        maxContentLength: Infinity,
       });
 
       if (result.data.type !== "success") {
