@@ -1,5 +1,5 @@
 import * as core from "@actions/core";
-import glob from "@actions/glob";
+import { create } from "@actions/glob";
 import { AxiosResponse } from "axios";
 import fs from "fs";
 import { api } from "./api";
@@ -16,7 +16,7 @@ import {
 const patterns = ["**/*.aab", "**/*.apk"];
 
 export const findFiles = async (file_path?: string): Promise<string[]> => {
-  const globber = await glob.create(file_path || patterns.join("\n"));
+  const globber = await create(file_path || patterns.join("\n"));
   return globber.glob();
 };
 

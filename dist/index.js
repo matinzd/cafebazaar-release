@@ -57,14 +57,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.checkIfThereIsAnyUncommittedRelease = exports.commitRelease = exports.createRelease = exports.createPackage = exports.findFiles = void 0;
 const core = __importStar(__nccwpck_require__(2186));
-const glob_1 = __importDefault(__nccwpck_require__(8090));
+const glob_1 = __nccwpck_require__(8090);
 const fs_1 = __importDefault(__nccwpck_require__(5747));
 const api_1 = __nccwpck_require__(8947);
 const constants_1 = __nccwpck_require__(5105);
 const types_1 = __nccwpck_require__(8164);
 const patterns = ["**/*.aab", "**/*.apk"];
 const findFiles = (file_path) => __awaiter(void 0, void 0, void 0, function* () {
-    const globber = yield glob_1.default.create(file_path || patterns.join("\n"));
+    const globber = yield (0, glob_1.create)(file_path || patterns.join("\n"));
     return globber.glob();
 });
 exports.findFiles = findFiles;
